@@ -1,0 +1,23 @@
+.help-dialog { width: min(1040px, calc(100vw - 32px)); height: min(760px, calc(100dvh - 32px)); max-width: none; max-height: none; padding: 0; border: 1px solid var(--border-color); border-radius: 8px; background: #fff; color: var(--text-main); box-shadow: 0 20px 80px #18263126; overflow: hidden; }
+.help-dialog[open] { display: flex; flex-direction: column; }
+.help-dialog::backdrop { background: #18263138; backdrop-filter: blur(4px); }
+.help-layout { display: grid; grid-template-columns: 205px minmax(0,1fr); flex: 1; min-height: 0; }
+.help-toc { overflow: auto; padding: 16px 10px; border-right: 1px solid var(--border-color); }
+.help-toc button { display: block; text-align: left; width: 100%; padding: 9px 10px; border-radius: 4px; background: transparent; font-size: 12px; line-height: 1.6; color: var(--text-secondary); }
+.help-toc button:hover, .help-toc button:focus-visible { background: var(--bg-hover); color: var(--text-main); }
+.help-content { min-height: 0; overflow: auto; padding: 22px 26px 32px; font-size: 13px; line-height: 1.85; overflow-wrap: anywhere; overscroll-behavior: contain; }
+.help-content h2 { font-size: 19px; margin: 0 0 22px; line-height: 1.6; }
+.help-content h3 { font-size: 16px; margin: 28px 0 12px; scroll-margin-top: 16px; }
+.help-content h4 { font-size: 14px; margin: 20px 0 8px; }
+.help-content p { margin: 10px 0; }
+.help-content ul, .help-content ol { margin: 10px 0; padding-left: 22px; }
+.help-content ul { list-style: disc; }.help-content ol { list-style: decimal; }
+.help-content li { margin: 6px 0; }
+.help-content code { padding: 2px 4px; border-radius: 3px; background: #f1f4f6; font-family: var(--font-mono); font-size: 12px; }
+.help-table { overflow-x: auto; margin: 14px 0; }
+.help-content table { width: 100%; border-collapse: collapse; text-align: left; font-size: 12px; }
+.help-content th, .help-content td { padding: 9px 10px; vertical-align: top; border: 1px solid var(--border-color); min-width: 90px; }
+.help-content th { background: #f5f7f9; font-weight: 600; }
+.help-dialog footer { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-shrink: 0; padding: 12px 18px; border-top: 1px solid var(--border-color); }
+.help-dialog footer span { font-size: 12px; color: var(--text-secondary); }
+@media (max-width: 700px) { .help-layout { grid-template-columns: minmax(0,1fr); }.help-toc { display: none; }.help-content { padding: 16px; }.help-dialog footer span { max-width: 60%; } }

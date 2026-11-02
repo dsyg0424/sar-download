@@ -1,0 +1,9 @@
+{
+    "source":  "https://github.com/JetBrains/JetBrainsMono",
+    "license":  "OFL.txt",
+    "files":  {
+                  "OFL.txt":  "A76ABF002C49097D146E86740A3105A5D00450B1592E820A1109A8C5680CD697",
+                  "JetBrainsMono-Medium.woff2":  "FE1C9099E3EA4123A6216D8A4A31970A2CFC6E9D80056DA165012F406C83E219",
+                  "JetBrainsMono-Regular.woff2":  "F1A7A03672CDD494CE0D5543FAC6E4360FE22403C6DE297FDC2E55A815F7BAFF"
+              }
+}

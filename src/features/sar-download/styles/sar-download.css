@@ -1,0 +1,74 @@
+@import "./sar-results.css";
+
+.sar-download-view { display: flex; flex-direction: column; gap: 5px; width: 100%; height: 100%; min-height: 0; pointer-events: none; }
+.search-dock { display: flex; flex-direction: column; flex: 0 0 auto; min-height: 0; max-height: 100%; overflow: hidden; pointer-events: auto; background: var(--bg-white); border-color: var(--border-color); color: var(--text-main); backdrop-filter: none; -webkit-backdrop-filter: none; box-shadow: 0 1px 3px rgba(15,23,42,.04); }
+.sar-download-view.has-results .search-dock { max-height: 65%; }
+.dock-heading { display: flex; align-items: center; gap: 10px; flex-shrink: 0; padding: 6px 10px 4px; user-select: none; }
+.sar-search-form { display: grid; grid-template-columns: minmax(0,1fr) 64px; align-items: stretch; gap: 8px; padding: 0 10px 8px; min-height: 0; }
+.sar-search-form > fieldset { min-width: 0; display: grid; grid-template-columns: minmax(240px,.75fr) minmax(300px,1.5fr); align-items: start; gap: 12px; min-height: 0; margin: 0; padding: 0; border: 0; overflow: auto; overscroll-behavior: contain; }
+.search-criteria { min-width: 0; }
+.region-actions-host { margin-bottom: 5px; }
+.region-actions-host:empty { display: none; }
+.date-range-field { display: flex; align-items: center; gap: 8px; margin-top: 0; padding: 4px 8px; border-radius: 4px; background: transparent; }
+.date-range-field > .infield-label { flex-shrink: 0; }
+.infield-label { display: block; font-size: 11px; color: var(--text-secondary); font-weight: 400; }
+.date-range-inputs { flex: 1; min-width: 0; display: grid; grid-template-columns: minmax(0,1fr) 12px minmax(0,1fr); align-items: start; gap: 5px; margin-top: 0; }
+.date-range-inputs > svg { align-self: center; color: var(--text-muted); }
+.date-range-inputs .date-picker .date-input-wrap > input { height: 24px; padding: 0 22px 0 6px; border: 1px solid var(--border-color); border-radius: 6px; background: var(--bg-white); color: var(--text-main); font: 400 11.5px var(--font-mono); box-shadow: none; }
+.date-range-inputs .date-picker:first-child .date-input-wrap > input { padding-right: 6px; }
+.date-range-inputs .date-picker:first-child .date-open { display: none; }
+.date-range-inputs .date-picker .date-open { right: 1px; top: 1px; width: 22px; height: 22px; }
+.sar-parameter-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 5px; margin-top: 5px; }
+.parameter-field { display: flex; flex-direction: column; gap: 0; min-width: 0; padding: 3px 8px; border-radius: 4px; background: transparent; }
+.parameter-field .ui-select > .ui-select-trigger { justify-content: center; height: 24px; padding: 0 24px 0 8px; border: 1px solid var(--border-color); border-radius: 6px; background: var(--bg-white); color: var(--text-main); font-size: 11.5px; font-weight: 400; box-shadow: none; }
+.parameter-field .ui-select-trigger > span { text-align: center; }
+.parameter-field .ui-select-trigger > svg { right: 8px; }
+.parameter-field:focus-within, .date-range-field:focus-within { background: transparent; }
+.sar-search-actions { display: flex; flex-direction: column; justify-content: flex-end; gap: 5px; flex-shrink: 0; }
+.sar-search-actions .btn { min-width: 0; height: 30px; padding: 4px 6px; }
+.search-feedback { width: min(520px,100%); flex: 0 1 auto; max-height: 120px; overflow: auto; padding: 9px 12px; pointer-events: auto; }
+.search-feedback p + p { margin-top: 4px; }
+.sar-note, .sar-error { font-size: 11px; line-height: 1.7; overflow-wrap: anywhere; }
+.sar-note { color: var(--text-secondary); }
+.sar-query-product { display: inline-block; margin-right: 8px; font-family: var(--font-mono); }
+
+@media (max-width: 899px) {
+  .sar-search-form { grid-template-columns: minmax(0,1fr) 64px; gap: 8px; }
+  .sar-search-form > fieldset { grid-template-columns: minmax(240px,.85fr) minmax(280px,1.4fr); gap: 8px; }
+}
+@media (max-width: 799px) {
+  .sar-parameter-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+@media (max-width: 679px) {
+  .sar-search-form { display: flex; flex-direction: column; }
+  .sar-search-form > fieldset { grid-template-columns: minmax(0,1fr); }
+  .sar-search-actions { display: grid; grid-template-columns: 1fr 1.7fr; }
+}
+
+/* Tokens copied from sar-data-workbench/src/app/styles/workbench.css. */
+.search-dock, .ui-select-menu, .date-calendar, .area-admin-portal {
+  --bg-white: #ffffff;
+  --bg-hover: #f1f5f9;
+  --bg-card: #ffffff;
+  --border-color: #e2e8f0;
+  --border-hover: #cbd5e1;
+  --text-main: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --accent-blue: #2563eb;
+  --accent-blue-hover: #1d4ed8;
+  --input-focus-border: #93b4ed;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --accent-surface: #eff6ff; --primary: var(--accent-blue); --primary-hover: var(--accent-blue-hover); --primary-foreground: #fff;
+}
+.search-dock { font-family: var(--font-sans); }
+.search-dock .parameter-field .ui-select > .ui-select-trigger:hover:not(:disabled) { border-color: var(--accent-blue); }
+.search-dock .parameter-field .ui-select > .ui-select-trigger:is(.open,:focus-visible),
+.search-dock .date-range-inputs .date-picker .date-input-wrap > input:focus { border-color: var(--input-focus-border); box-shadow: none; }
+.search-dock .parameter-field .ui-select > .ui-select-trigger:disabled { background: var(--bg-hover); }
+.search-dock .date-range-inputs .date-picker input[aria-invalid="true"] { border-color: #dc2626; }
+.search-dock .sar-search-actions .btn { border-radius: 6px; border: 1px solid transparent; transition: background-color .15s ease, border-color .15s ease, color .15s ease; }
+.search-dock .sar-search-actions .btn-primary { background: var(--accent-blue); color: #fff; box-shadow: 0 2px 6px rgba(37,99,235,.2); }
+.search-dock .sar-search-actions .btn-primary:hover:not(:disabled) { background: var(--accent-blue-hover); }
+.search-dock .sar-search-actions .btn-secondary { background: var(--bg-white); border-color: var(--border-color); color: var(--text-secondary); }
+.search-dock .sar-search-actions .btn-secondary:hover:not(:disabled) { background: var(--bg-hover); color: var(--text-main); }

@@ -1,0 +1,70 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "SAR download",
+  "version": "0.1.0",
+  "identifier": "com.sar.download",
+  "build": {
+    "beforeDevCommand": "bun run dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "bun run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "地枢遥感 SAR数据可视化下载平台",
+        "width": 1440,
+        "height": 920,
+        "minWidth": 1000,
+        "minHeight": 640,
+        "decorations": false,
+        "backgroundColor": "#ffffff",
+        "shadow": true,
+        "resizable": true
+      }
+    ],
+    "security": {
+      "csp": {
+        "default-src": "'self'",
+        "script-src": "'self'",
+        "style-src": "'self'",
+        "style-src-attr": "'unsafe-inline'",
+        "img-src": "'self' data: blob:",
+        "font-src": "'self'",
+        "connect-src": "'self' ipc: http://ipc.localhost https://ipc.localhost",
+        "worker-src": "'self'",
+        "object-src": "'none'",
+        "frame-src": "'none'",
+        "base-uri": "'none'",
+        "form-action": "'none'",
+        "media-src": "'none'"
+      },
+      "devCsp": {
+        "default-src": "'self'",
+        "script-src": "'self' 'unsafe-inline'",
+        "style-src": "'self' 'unsafe-inline'",
+        "img-src": "'self' data: blob:",
+        "font-src": "'self'",
+        "connect-src": "'self' ipc: http://ipc.localhost https://ipc.localhost http://localhost:1420 http://127.0.0.1:1420 ws://localhost:1420 ws://127.0.0.1:1420 ws://localhost:1421 ws://127.0.0.1:1421",
+        "worker-src": "'self'",
+        "object-src": "'none'",
+        "frame-src": "'none'",
+        "base-uri": "'none'",
+        "form-action": "'none'",
+        "media-src": "'none'"
+      }
+    }
+  },
+  "bundle": {
+    "active": true,
+    "publisher": "phaseterra",
+    "targets": "all",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ]
+  }
+}

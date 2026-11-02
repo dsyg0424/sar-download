@@ -1,0 +1,62 @@
+[package]
+name = "sar-download"
+version = "0.1.0"
+description = "SAR download desktop application"
+authors = ["phaseterra"]
+edition = "2024"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+# The `_lib` suffix may seem redundant but it is necessary
+# to make the lib name unique and wouldn't conflict with the bin name.
+# This seems to be only an issue on Windows, see https://github.com/rust-lang/cargo/issues/8519
+name = "sar_download_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+tauri-plugin-opener = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+reqwest = { version = "0.12", features = ["json", "stream", "cookies"] }
+tokio = { version = "1", features = ["full"] }
+futures-util = "0.3"
+flate2 = "1"
+quick-xml = "0.42"
+sha2 = "0.10"
+hex = "0.4"
+md5 = "0.7"
+chrono = { version = "0.4", default-features = false, features = ["std", "clock"] }
+tracing = "0.1"
+rfd = "0.14"
+geo = "0.31"
+geojson = { version = "0.24", features = ["geo-types"] }
+percent-encoding = "2"
+zip = { version = "2.4.2", default-features = false, features = ["deflate"] }
+tauri-plugin-single-instance = "2"
+
+[target.'cfg(windows)'.dependencies]
+windows-sys = { version = "0.61", features = ["Win32_Storage_FileSystem"] }
+keyring = { version = "=3.6.3", features = ["windows-native"] }
+
+[target.'cfg(target_os = "macos")'.dependencies]
+keyring = { version = "=3.6.3", features = ["apple-native"] }
+
+[target.'cfg(target_os = "linux")'.dependencies]
+keyring = { version = "=3.6.3", features = ["sync-secret-service", "crypto-rust", "vendored"] }
+
+[target.'cfg(unix)'.dependencies]
+libc = "0.2"
+
+
+# Read the optimization guideline for more details: https://tauri.app/concept/size/#cargo-configuration
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = 3
+panic = "abort"
+strip = true

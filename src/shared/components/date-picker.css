@@ -1,0 +1,39 @@
+.date-picker { display: flex; flex-direction: column; width: 100%; min-width: 0; gap: 4px; }
+.date-input-wrap { display: flex; position: relative; width: 100%; }
+.date-picker .date-input-wrap > input { width: 100%; height: 32px; min-width: 0; box-sizing: border-box; border: 1px solid var(--border-color, #dce1e8); border-radius: 6px; padding: 0 27px 0 6px; font-size: 11.5px; color: var(--text-main); background: var(--bg-white); outline: none; }
+.date-picker .date-input-wrap > input:focus { border-color: var(--input-focus-border, #93b4ed); box-shadow: none; }
+.date-picker .date-text-input:not(:disabled) { cursor: pointer; }
+.date-picker input[aria-invalid=true] { border-color: #dc2626; }
+.date-picker .date-open { position: absolute; right: 2px; top: 2px; width: 25px; height: 28px; min-height: 0; padding: 0; display: grid; place-items: center; border: 0; background: transparent; color: var(--text-secondary); cursor: pointer; }
+.date-picker :disabled { opacity: .45; cursor: not-allowed; }
+.date-error { font-size: 11px; color: #b91c1c; }
+.date-calendar { position: fixed; z-index: 11000; width: 280px; max-width: calc(100vw - 10px); overflow: auto; box-sizing: border-box; padding: 12px; background: var(--bg-white, white); color: var(--text-main, #263244); border: 1px solid var(--border-color, #dce1e8); border-radius: 10px; box-shadow: 0 8px 24px #0002; font-size: 12px; }
+.date-calendar button { cursor: pointer; font: inherit; border: 0; background: transparent; color: inherit; border-radius: 6px; }
+.date-calendar button:hover:not(:disabled) { background: #eff6ff; color: #2563eb; }
+.date-calendar button:focus-visible { outline: 2px solid #2563eb; outline-offset: -2px; }
+.date-calendar button:disabled { opacity: .3; cursor: not-allowed; }
+.date-calendar-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+.date-calendar-header > button { display: grid; place-items: center; width: 28px; height: 28px; }
+.date-calendar-titles { display: flex; align-items: center; gap: 4px; }
+.date-calendar-titles button { height: 28px; padding: 0 8px; font-weight: 600; }
+.date-calendar-titles button[aria-expanded=true] { background: #eff6ff; color: #2563eb; }
+.date-calendar-body { height: 218px; min-height: 218px; overflow: hidden; }
+.date-period-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(4, minmax(0, 1fr)); gap: 6px; height: 218px; }
+.date-period-grid button { padding: 8px 4px; }
+.date-year-scroll { height: 218px; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: none; }
+.date-year-space { position: relative; }
+.date-year-space button { position: absolute; width: calc(100% / 3 - 4px); height: 50px; }
+.date-year-space button[aria-pressed=true] { background: #2563eb; color: white; }
+.date-period-grid button[aria-pressed=true] { background: #2563eb; color: white; }
+.date-weekdays, .date-grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 2px; text-align: center; }
+.date-weekdays { color: var(--text-secondary); padding: 4px 0 8px; height: 28px; box-sizing: border-box; line-height: 16px; }
+.date-grid .date-day { height: 30px; padding: 0; }
+.date-day.outside { color: var(--text-secondary); opacity: .55; }
+.date-grid .date-day.in-range { background: #eff6ff; }
+.date-grid .date-day.today { box-shadow: inset 0 0 0 1px #2563eb; }
+.date-grid .date-day.selected { background: #2563eb; color: white; opacity: 1; }
+.date-calendar .date-day.selected:hover:not(:disabled),
+.date-calendar .date-year-space button[aria-pressed=true]:hover:not(:disabled),
+.date-calendar .date-period-grid button[aria-pressed=true]:hover:not(:disabled) { background: #1d4ed8; color: white; }
+.date-calendar-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-color); margin-top: 8px; padding-top: 8px; color: var(--text-secondary); }
+.date-calendar-footer button { padding: 4px 8px; color: #2563eb; }

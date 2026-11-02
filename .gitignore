@@ -1,0 +1,50 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+.codex-tmp/
+*.local
+
+# Build caches and test output
+.vite/
+.cache/
+coverage/
+*.tsbuildinfo
+
+# Local environment and credentials
+.env
+.env.*
+!.env.example
+!.env.*.example
+.aws/
+.netrc
+_netrc
+
+# Rust build output (Tauri-specific rules are in src-tauri/.gitignore)
+/target/
+**/*.rs.bk
+
+# Temporary files
+*.tmp
+*.temp
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
